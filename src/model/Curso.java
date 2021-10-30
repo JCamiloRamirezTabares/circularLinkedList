@@ -19,7 +19,9 @@ public class Curso {
 			primero = e;
 			ultimo = e;
 			primero.setAnterior(ultimo);
+			primero.setSiguiente(ultimo);
 			ultimo.setSiguiente(primero);
+			ultimo.setAnterior(primero);
 		}else {
 			ultimo.setSiguiente(e);
 			e.setSiguiente(primero);
@@ -33,9 +35,16 @@ public class Curso {
 		
 		do {
 			if(temp.getCodigo().equals(code)) {
-				temp.getAnterior().setSiguiente(temp.getSiguiente());
-				temp.getSiguiente().setAnterior(temp.getAnterior());
-				temp = primero;
+				if(temp == primero && temp.getSiguiente() == primero) {
+					primero = null;
+				} else if(temp == primero && temp.getSiguiente() != primero) {
+					primero = primero.getSiguiente();
+					ultimo.setSiguiente(primero);
+				} else {
+					temp.getAnterior().setSiguiente(temp.getSiguiente());
+					temp.getSiguiente().setAnterior(temp.getAnterior());
+					temp = primero;
+				}
 			} else {
 				temp = temp.getSiguiente();
 			}

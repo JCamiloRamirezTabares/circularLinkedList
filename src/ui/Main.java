@@ -1,52 +1,19 @@
 package ui;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
 import model.Curso;
 import model.Estudiante;
 
 public class Main {
 	
 	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	
 	private static Curso curso;
 
 	public static void main(String [] juank) {
-		
-		
-		System.out.print("Escoge una opcion:\n"
-				+ "( 1 ) Para importar los estudiantes desde la base de datos\n"
-				+ "( 2 ) Para entrar al menu de metodos\n"
-				+ "( 0 ) Para salir\n"
-				+ "Opcion: ");
-		
-		int option = -1;
-		try {
-			String o = br.readLine();
-			option = Integer.parseInt(o);
-		} catch (IOException e2) {
-			System.out.println("Por favor ingrese texto valido");
-		}
-		
-
-		if(option != 0) {
-			switch(option) {
-			case 1:
-				
-				break;
-			case 2:
-				Menu();
-				break;
-			}
-		} else {
-			System.out.println("Bye");
-		}
-		
+		Menu();
 	}
 	
 	public static void Menu() {
@@ -131,8 +98,5 @@ public class Main {
 		System.out.println(curso.pintarGeneral());
 	}
 	
-	public void importEstudiantes() {
-		
-	}
 	
 }
