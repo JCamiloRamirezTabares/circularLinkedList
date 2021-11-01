@@ -34,7 +34,7 @@ public class Curso {
 		}
 	}
 	
-	public void eliminarEstudiante(String code) {
+	public int eliminarEstudiante(String code) {
 		Estudiante temp = primero;
 		
 		do {
@@ -49,10 +49,13 @@ public class Curso {
 					temp.getSiguiente().setAnterior(temp.getAnterior());
 					temp = primero;
 				}
+				
+				return 1;
 			} else {
 				temp = temp.getSiguiente();
 			}
 		}while(temp != primero);
+		return -1;
 	}
 	
 	public String pintarGeneral() {

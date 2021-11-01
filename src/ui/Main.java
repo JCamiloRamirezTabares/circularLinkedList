@@ -90,7 +90,12 @@ public class Main {
 		System.out.print("Codigo del Estudiante: ");
 		String code = br.readLine();
 		
-		curso.eliminarEstudiante(code);
+		int confirmation = curso.eliminarEstudiante(code);
+		if(confirmation == 1) {
+			System.out.println("Se ha eliminado correctamente el estudiante");
+		} else {
+			System.out.println("No se ha podido eliminar el estudiante");
+		}
 	}
 	
 	public static void imprimirEstudiantes() {
