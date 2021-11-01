@@ -93,8 +93,11 @@ public class Main {
 		int confirmation = curso.eliminarEstudiante(code);
 		if(confirmation == 1) {
 			System.out.println("Se ha eliminado correctamente el estudiante");
+		} else if(confirmation == -1){
+			System.out.println("No se encontro estudiante con el valor suministrado");
 		} else {
-			System.out.println("No se ha podido eliminar el estudiante");
+			System.out.println("Aun no hay estudiantes registrados\n"
+					+ "Porfavor intentelo de nuevo despues de agregar al menos uno");
 		}
 	}
 	

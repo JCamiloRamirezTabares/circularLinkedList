@@ -37,24 +37,28 @@ public class Curso {
 	public int eliminarEstudiante(String code) {
 		Estudiante temp = primero;
 		
-		do {
-			if(temp.getCodigo().equals(code)) {
-				if(temp == primero && temp.getSiguiente() == primero) {
-					primero = null;
-				} else if(temp == primero && temp.getSiguiente() != primero) {
-					primero = primero.getSiguiente();
-					ultimo.setSiguiente(primero);
+		if(primero == null) {
+			return 0;
+		} else {
+			do {
+				if(temp.getCodigo().equals(code)) {
+					if(temp == primero && temp.getSiguiente() == primero) {
+						primero = null;
+					} else if(temp == primero && temp.getSiguiente() != primero) {
+						primero = primero.getSiguiente();
+						ultimo.setSiguiente(primero);
+					} else {
+						temp.getAnterior().setSiguiente(temp.getSiguiente());
+						temp.getSiguiente().setAnterior(temp.getAnterior());
+						temp = primero;
+					}
+					
+					return 1;
 				} else {
-					temp.getAnterior().setSiguiente(temp.getSiguiente());
-					temp.getSiguiente().setAnterior(temp.getAnterior());
-					temp = primero;
+					temp = temp.getSiguiente();
 				}
-				
-				return 1;
-			} else {
-				temp = temp.getSiguiente();
-			}
-		}while(temp != primero);
+			}while(temp != primero);
+		}	
 		return -1;
 	}
 	
