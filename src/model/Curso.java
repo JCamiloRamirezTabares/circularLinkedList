@@ -13,6 +13,10 @@ public class Curso {
 		numEstudiantes = nm;
 	}
 	
+	public Curso(String n, int num, Estudiante e) {
+		
+	}
+	
 	//Methods
 	public void addEstudiante(Estudiante e) {
 		if(primero == null) {
@@ -66,6 +70,22 @@ public class Curso {
 		return s;
 	}
 	
+	//Metodos vacios
+	public void addEstudianteOrdenadamente(Estudiante e) {
+		
+	}
+	
+	public void pintarEstudiantes() {
+		
+	}
+	
+	public void pintarAtrasAdelanteEstudiantes() {
+		
+	}
+	
+	public void pintarEstudiantesRecursivo(Estudiante e) {
+		
+	}
 
 	//Getters & Setters
 	public String getNombre() {
@@ -86,5 +106,9 @@ public class Curso {
 
 	public Estudiante getPrimero() {
 		return primero;
+	}
+	
+	public void setPrimero(Estudiante primero) {
+		this.primero = primero;
 	}
 }
